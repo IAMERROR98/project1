@@ -38,9 +38,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.listWidget.clear()
         with open("data.csv", 'r', newline="") as f:
             for row in f:
-                #if row == '\r\n':
-                    #pass
-                    #print('you suck')
+
 
                 #else:
 
@@ -121,7 +119,7 @@ class Logic(QMainWindow, Ui_MainWindow):
         lines = []
         d = self.listWidget.currentItem()
         if d is None:
-            print('Please select a name')
+            self.select_error.setText("Please select a name")
         else:
             with open("data.csv", 'r', newline="") as f:
                 csv_file = csv.reader(f)
@@ -143,13 +141,12 @@ class Logic(QMainWindow, Ui_MainWindow):
                         row.pop()
                     else:
                         lines.append(row)
-                        print(lines)
+
 
 
             with open("data.csv", 'w', newline="") as f:
                 csvwriter = csv.writer(f)
                 csvwriter.writerows(lines)
-                #print('done')
             self.fill()
 
 
