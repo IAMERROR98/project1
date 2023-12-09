@@ -1,5 +1,4 @@
-from tempfile import NamedTemporaryFile
-import shutil
+
 from PyQt6.QtWidgets import *
 from maingui import *
 from report import *
@@ -102,7 +101,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             with open('data.csv', 'a', newline="") as f:
                 csvwriter = csv.writer(f)
                 csvwriter.writerow(values)
-                print('done')
+                #print('done')
 
 
                 self.listWidget.addItem(name)
